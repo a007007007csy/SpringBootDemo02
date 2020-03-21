@@ -5,8 +5,8 @@ spring:
     url: jdbc:mysql://192.168.1.156:3307/mybatis
     driver-class-name: com.mysql.cj.jdbc.Driver
     #启动时需要初始化的建表语句
-    schema:
-      - classpath:schema-all.sql
+#    schema:
+#      - classpath:schema-all.sql
     #初始化的数据
     #data: classpath:data-mysql.sql
     # Initialize the datasource with available DDL and DML scripts.

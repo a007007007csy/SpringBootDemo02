@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class DeptController {
 
-   /* @Autowired
+    @Autowired
     DepartmentMapper departmentMapper;
 
     @GetMapping("/dept/{id}")
@@ -22,7 +22,7 @@ public class DeptController {
     public Department insertDepartment(Department department){
          departmentMapper.insertDept(department);
          return department;
-    }*/
+    }
 }
 
 
