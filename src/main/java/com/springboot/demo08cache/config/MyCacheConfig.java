@@ -1,4 +1,4 @@
-package com.springboot.demo08cache.cache;
+package com.springboot.demo08cache.config;
 
 import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.context.annotation.Bean;
