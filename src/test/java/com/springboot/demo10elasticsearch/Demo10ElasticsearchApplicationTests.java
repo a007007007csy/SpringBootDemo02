@@ -1,6 +1,8 @@
 package com.springboot.demo10elasticsearch;
 
 import com.springboot.demo10elasticsearch.bean.Article;
+import com.springboot.demo10elasticsearch.bean.Book;
+import com.springboot.demo10elasticsearch.repository.BookRepository;
 import io.searchbox.client.JestClient;
 import io.searchbox.core.Index;
 import io.searchbox.core.Search;
@@ -16,11 +18,13 @@ class Demo10ElasticsearchApplicationTests {
 
     @Autowired
     JestClient jestClient;
+    @Autowired
+    BookRepository bookRepository;
 
     @Test
     void contextLoads() throws IOException {
         // 1、给es中索引（保存）文档
-        Article article = new Article(1, "作者", "标题-好消息", "文章内容2");
+        Article article = new Article(4, "作者", "标题-好消息", "文章内容2");
 
         Index index = new Index.Builder(article).index("springbootdemo").type("news").build();
 
@@ -42,5 +46,21 @@ class Demo10ElasticsearchApplicationTests {
    // 执行
         SearchResult result = jestClient.execute(search);
         System.out.println(result.getJsonString());
+    }
+
+    // ------------spring data--------------
+    @Test
+    public void test02(){
+        Book book = new Book(1,"呵呵哒","谁写的");
+        bookRepository.index(book);
+    }
+
+    @Test
+    public void test03(){
+        //Book book = new Book(1,"呵呵哒","谁写的");
+//        for (Book book : bookRepository.FindByBookNameLike("呵")) {
+//            System.out.println(book);
+//        }
+
     }
 }
